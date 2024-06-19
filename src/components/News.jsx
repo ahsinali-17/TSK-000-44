@@ -9,7 +9,7 @@ const News = ({category}) => {
     const fetchData = async () => {
       try{
         setLoading(true)
-        const dataObj = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=ebb0989b4cab46ba9391409c5d99427`);
+        const dataObj = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=ebb0989b4cab46ba9391409c5d99427a`);
   
         if (!dataObj.ok) {
           if (dataObj.status >= 400 && dataObj.status < 500) 

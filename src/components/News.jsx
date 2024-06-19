@@ -9,15 +9,15 @@ const News = ({category}) => {
     const fetchData = async () => {
       try{
         setLoading(true)
-        const dataObj = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=ebb0989b4cab46ba9391409c5d99427a`);
+        const dataObj = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=ebb0989b4cab46ba9391409c5d99427`);
   
         if (!dataObj.ok) {
           if (dataObj.status >= 400 && dataObj.status < 500) 
-            throw new Error(`Client Error: ${dataObj.status}`);
+            throw new Error(`Client Error: ${dataObj.status} Unable to fetch data from the server.`);
           else if (response.status >= 500) 
-            throw new Error(`Server Error: ${dataObj.status}`);
+            throw new Error(`Server Error: ${dataObj.status} The server encountered a problem.`);
           else 
-            throw new Error(`Unexpected Error: ${dataObj.status}`);
+            throw new Error(`Unexpected Error: ${dataObj.status} Unable to fetch data.`);
         }
   
         const data = await dataObj.json();
